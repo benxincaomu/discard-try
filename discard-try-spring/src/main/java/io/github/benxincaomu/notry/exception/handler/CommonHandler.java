@@ -1,24 +1,29 @@
 package io.github.benxincaomu.notry.exception.handler;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 import io.github.benxincaomu.notry.code.CommonResponseCode;
+import io.github.benxincaomu.notry.exception.CommonException;
 
 /**
  * 请求后置处理，异常处理和响应结构处理
  */
 @RestControllerAdvice
 public class CommonHandler implements ResponseBodyAdvice<Object> {
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Override
     public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
-        return false;
+        return true;
     }
 
     @Override
@@ -33,6 +38,13 @@ public class CommonHandler implements ResponseBodyAdvice<Object> {
             return body;
         }
         return new ResponseMessage(CommonResponseCode.SUCCESS, null);
+    }
+
+    @ExceptionHandler({ CommonException.class })
+    public ResponseMessage<?> resolveCommonException(CommonException e) {
+        logger.error("业务主动操作异常", e);
+        ResponseMessage message = new ResponseMessage(e.getCode(), e.getMessage(), null);
+        return message;
     }
 
 }

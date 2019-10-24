@@ -1,7 +1,8 @@
 package io.github.benxincaomu.notry.code;
 
 public enum CommonResponseCode implements ResponseCode {
-    ERROR(500, "系统异常"), SUCCESS(200, "操作成功"),;
+    ERROR(500, "系统异常"),
+    SUCCESS(200, "操作成功"),;
     private int code;
     private String message;
 

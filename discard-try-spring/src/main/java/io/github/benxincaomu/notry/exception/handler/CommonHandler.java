@@ -19,32 +19,35 @@ import io.github.benxincaomu.notry.exception.CommonException;
  */
 @RestControllerAdvice
 public class CommonHandler implements ResponseBodyAdvice<Object> {
-    private final Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Override
-    public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
-        return true;
-    }
+	private final Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Override
-    public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType,
-            Class<? extends HttpMessageConverter<?>> selectedConverterType, ServerHttpRequest request,
-            ServerHttpResponse response) {
-        if (body instanceof ResponseMessage) {
-            return body;
-        }
-        if (selectedContentType != MediaType.APPLICATION_JSON
-                && selectedContentType != MediaType.APPLICATION_JSON_UTF8) {
-            return body;
-        }
-        return new ResponseMessage(CommonResponseCode.SUCCESS, null);
-    }
+	@Override
+	public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
+		return true;
+	}
 
-    @ExceptionHandler({ CommonException.class })
-    public ResponseMessage<?> resolveCommonException(CommonException e) {
-        logger.error("业务主动操作异常", e);
-        ResponseMessage message = new ResponseMessage(e.getCode(), e.getMessage(), null);
-        return message;
-    }
+	@Override
+	public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType,
+			Class<? extends HttpMessageConverter<?>> selectedConverterType, ServerHttpRequest request,
+			ServerHttpResponse response) {
+		if (body instanceof ResponseMessage) {
+			return body;
+		}
+		if (selectedContentType != MediaType.APPLICATION_JSON && selectedContentType != MediaType.APPLICATION_JSON_UTF8
+				&& selectedContentType != MediaType.TEXT_XML) {
+			return body;
+		}
+		return new ResponseMessage<>(CommonResponseCode.SUCCESS, null);
+	}
+
+	@ExceptionHandler({ CommonException.class })
+	public ResponseMessage<?> resolveCommonException(CommonException e) {
+		if (logger.isDebugEnabled()) {
+			logger.debug("bussiness code:" + e.getCode());
+		}
+		ResponseMessage<?> message = new ResponseMessage<>(e.getCode(), e.getMessage(), null);
+		return message;
+	}
 
 }

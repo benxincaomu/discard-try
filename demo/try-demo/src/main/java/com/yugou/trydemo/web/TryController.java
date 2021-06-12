@@ -1,5 +1,6 @@
 package com.yugou.trydemo.web;
 
+import io.github.benxincaomu.notry.utils.Asserts;
 import io.github.benxincaomu.notry.utils.Page;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,5 +28,11 @@ public class TryController {
         Page<TryEntity> page = new Page<>();
         page.setRecords(entities);
         return page;
+    }
+
+    @GetMapping("exception")
+    public TryEntity exception(){
+        Asserts.error();
+        return null;
     }
 }

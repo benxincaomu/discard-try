@@ -1,0 +1,13 @@
+package com.yugou.trydemo;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class TryDemoApplicationTests {
+
+    @Test
+    void contextLoads() {
+    }
+
+}

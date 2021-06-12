@@ -34,11 +34,11 @@ public class CommonHandler implements ResponseBodyAdvice<Object> {
 		if (body instanceof ResponseMessage) {
 			return body;
 		}
-		if (selectedContentType != MediaType.APPLICATION_JSON && selectedContentType != MediaType.APPLICATION_JSON_UTF8
-				&& selectedContentType != MediaType.TEXT_XML) {
+		if (!selectedContentType.equalsTypeAndSubtype(MediaType.APPLICATION_JSON)  && !selectedContentType.equalsTypeAndSubtype(MediaType.APPLICATION_JSON_UTF8)
+				&& !selectedContentType.equalsTypeAndSubtype(MediaType.TEXT_XML)) {
 			return body;
 		}
-		return new ResponseMessage<>(CommonResponseCode.SUCCESS, null);
+		return new ResponseMessage<>(CommonResponseCode.SUCCESS, body);
 	}
 
 	@ExceptionHandler({ CommonException.class })

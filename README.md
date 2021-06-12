@@ -54,8 +54,6 @@ public class Config{
 }
 ```
 
-### spring-boot配置
-
 
 
 ### 正常流程
@@ -68,3 +66,8 @@ public class Config{
 
 使用`io.github.benxincaomu.notry.utils.Asserts`工具类中提供的方法进行简单判断并抛出异常，框架捕获异常，并使用传入的响应码包装为固定格式响应给调用方。
 
+## 嵌入示例
+
+
+
+见 [yugou/discard-try: 减少try-catch - discard-try - Gitea: Git with a cup of tea (cccgg.com)](http://git.cccgg.com/yugou/discard-try/src/branch/master/demo/try-demo)

@@ -38,7 +38,7 @@
 <dependency>
 	<groupId>io.github.benxincaomu</groupId>
 	<artifactId>discard-try-spring</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 </dependency>
 ```
 
@@ -68,6 +68,4 @@ public class Config{
 
 ## 嵌入示例
 
-
-
-见 [yugou/discard-try: 减少try-catch - discard-try - Gitea: Git with a cup of tea (cccgg.com)](http://git.cccgg.com/yugou/discard-try/src/branch/master/demo/try-demo)
+见demo

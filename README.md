@@ -33,22 +33,22 @@
 ### Spring 配置
 
 #### 引入jar包依赖
-
+spring mvc引入
 ```xml
 <dependency>
-	<groupId>io.github.benxincaomu</groupId>
-	<artifactId>discard-try-spring</artifactId>
+	<groupId>com.github.benxincaomu</groupId>
+	<artifactId>discard-try-mvc</artifactId>
     <version>1.0.0</version>
 </dependency>
 ```
 
 #### 配置
 
-建议使用注解是spring扫描`io.github.benxincaomu.notry`
+建议使用注解是spring扫描`com.github.benxincaomu.notry`
 
 ```java
 @Configuration
-@ComponentScan("io.github.benxincaomu.notry")
+@ComponentScan("com.github.benxincaomu.notry")
 public class Config{
     
 }
@@ -64,7 +64,7 @@ public class Config{
 
 ### 业务异常
 
-使用`io.github.benxincaomu.notry.utils.Asserts`工具类中提供的方法进行简单判断并抛出异常，框架捕获异常，并使用传入的响应码包装为固定格式响应给调用方。
+使用`com.github.benxincaomu.notry.utils.Asserts`工具类中提供的方法进行简单判断并抛出异常，框架捕获异常，并使用传入的响应码包装为固定格式响应给调用方。
 
 ## 嵌入示例
 

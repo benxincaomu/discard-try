@@ -21,8 +21,8 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.github.benxincaomu</groupId>
-            <artifactId>discard-try-spring</artifactId>
+            <groupId>com.github.benxincaomu</groupId>
+            <artifactId>discard-try-mvc</artifactId>
             <version>1.0.0</version>
         </dependency>
 

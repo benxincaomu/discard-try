@@ -4,7 +4,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.github.benxincaomu</groupId>
+    <groupId>com.github.benxincaomu</groupId>
 
     <artifactId>discard-try</artifactId>
     <version>1.0.0</version>
@@ -17,18 +17,9 @@
     </properties>
 
     <modules>
-        <module>discard-try-spring</module>
+        <module>discard-try-mvc</module>
+        <module>discard-try-core</module>
     </modules>
-	<distributionManagement>
-		<repository>
-			<id>rdc-releases</id>
-			<url>http://www.cccgg.com:8081/repository/maven-releases/</url>
-		</repository>
-		<snapshotRepository>
-			<id>rdc-snapshots</id>
-			<url>http://www.cccgg.com:8081/repository/maven-snapshots/</url>
-		</snapshotRepository>
-	</distributionManagement>
     <build>
         <plugins>
             <plugin>

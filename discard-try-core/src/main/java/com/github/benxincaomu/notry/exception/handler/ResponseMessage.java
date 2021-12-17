@@ -1,7 +1,10 @@
-package io.github.benxincaomu.notry.exception.handler;
+package com.github.benxincaomu.notry.exception.handler;
 
-import io.github.benxincaomu.notry.code.ResponseCode;
-
+import com.github.benxincaomu.notry.code.ResponseCode;
+/**
+ * 定义响应格式
+ * @author sunfutao
+ */
 public class ResponseMessage<T> {
     private int code;
     private String message;

@@ -1,4 +1,4 @@
-package io.github.benxincaomu.notry.exception.handler;
+package com.github.benxincaomu.notry.exception.handler;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,11 +11,12 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
-import io.github.benxincaomu.notry.code.CommonResponseCode;
-import io.github.benxincaomu.notry.exception.CommonException;
+import com.github.benxincaomu.notry.code.CommonResponseCode;
+import com.github.benxincaomu.notry.exception.CommonException;
 
 /**
  * 请求后置处理，异常处理和响应结构处理
+ * @author sunfutao
  */
 @RestControllerAdvice
 public class CommonHandler implements ResponseBodyAdvice<Object> {

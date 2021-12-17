@@ -1,6 +1,6 @@
-package io.github.benxincaomu.notry.exception;
+package com.github.benxincaomu.notry.exception;
 
-import io.github.benxincaomu.notry.code.ResponseCode;
+import com.github.benxincaomu.notry.code.ResponseCode;
 
 /**
  * 通用业务异常，主动抛出表示业务流程未正常返回

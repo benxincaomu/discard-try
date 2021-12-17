@@ -1,7 +1,7 @@
 package com.yugou.trydemo.web;
 
-import io.github.benxincaomu.notry.utils.Asserts;
-import io.github.benxincaomu.notry.utils.Page;
+import com.github.benxincaomu.notry.utils.Asserts;
+import com.github.benxincaomu.notry.utils.Page;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

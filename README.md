@@ -32,8 +32,12 @@
 
 ### Spring 配置
 
-#### 引入jar包依赖
-spring mvc引入
+#### depoly
+
+
+
+#### spring mvc引入
+先将相关jar部署到maven本地库中或者先depoly到私有maven库，然后在pom中引入
 ```xml
 <dependency>
 	<groupId>com.github.benxincaomu</groupId>
@@ -42,7 +46,7 @@ spring mvc引入
 </dependency>
 ```
 
-spring-webflux部分还未完成
+#### spring-webflux部分还未完成
 
 #### 配置
 

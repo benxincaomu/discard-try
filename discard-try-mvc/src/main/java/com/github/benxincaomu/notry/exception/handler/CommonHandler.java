@@ -35,7 +35,7 @@ public class CommonHandler implements ResponseBodyAdvice<Object> {
 		if (body instanceof ResponseMessage) {
 			return body;
 		}
-		if (!selectedContentType.equalsTypeAndSubtype(MediaType.APPLICATION_JSON)  && !selectedContentType.equalsTypeAndSubtype(MediaType.APPLICATION_JSON_UTF8)
+		if (!selectedContentType.equalsTypeAndSubtype(MediaType.APPLICATION_JSON)  && !selectedContentType.equalsTypeAndSubtype(MediaType.APPLICATION_JSON)
 				&& !selectedContentType.equalsTypeAndSubtype(MediaType.TEXT_XML)) {
 			return body;
 		}

@@ -42,6 +42,8 @@ spring mvc引入
 </dependency>
 ```
 
+spring-webflux部分还未完成
+
 #### 配置
 
 建议使用注解是spring扫描`com.github.benxincaomu.notry`
@@ -68,4 +70,4 @@ public class Config{
 
 ## 嵌入示例
 
-见demo
+见demo/try-demo

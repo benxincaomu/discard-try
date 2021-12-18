@@ -1,4 +1,4 @@
-package com.yugou.trydemo.web;
+package com.github.benxincaomu.trywebfluxdemo.web;
 
 public class TryEntity {
     private String name;

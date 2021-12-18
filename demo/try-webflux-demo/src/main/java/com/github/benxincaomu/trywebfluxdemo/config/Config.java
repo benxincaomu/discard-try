@@ -1,4 +1,4 @@
-package com.yugou.trydemo.config;
+package com.github.benxincaomu.trywebfluxdemo.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

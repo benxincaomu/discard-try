@@ -1,4 +1,4 @@
-package com.yugou.trydemo.web;
+package com.github.benxincaomu.trydemo.web;
 
 import com.github.benxincaomu.notry.utils.Asserts;
 import com.github.benxincaomu.notry.utils.Page;

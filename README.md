@@ -34,10 +34,10 @@
 
 #### depoly
 
-
+先将相关jar部署到maven本地库中或者先depoly到私有maven库，然后在pom中引入
 
 #### spring mvc引入
-先将相关jar部署到maven本地库中或者先depoly到私有maven库，然后在pom中引入
+
 ```xml
 <dependency>
 	<groupId>com.github.benxincaomu</groupId>
@@ -46,7 +46,14 @@
 </dependency>
 ```
 
-#### spring-webflux部分还未完成
+#### spring-webflux引入
+```xml
+<dependency>
+	<groupId>com.github.benxincaomu</groupId>
+	<artifactId>discard-try-flux</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
 
 #### 配置
 

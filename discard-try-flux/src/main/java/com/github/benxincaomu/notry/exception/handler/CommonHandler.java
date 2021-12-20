@@ -3,7 +3,6 @@ package com.github.benxincaomu.notry.exception.handler;
 
 
 import com.github.benxincaomu.notry.code.CommonResponseCode;
-import com.github.benxincaomu.notry.code.ResponseCode;
 import com.github.benxincaomu.notry.exception.CommonException;
 
 import org.slf4j.Logger;
@@ -21,7 +20,7 @@ import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
 /**
- * 请求后置处理，异常处理和响应结构处理
+ * 请求后置处理，异常处理和响应结构处理,支持webflux
  * @author sunfutao
  */
 @RestControllerAdvice
@@ -36,7 +35,7 @@ public class CommonHandler extends ResponseBodyResultHandler  {
 
     @Override
     public boolean supports(HandlerResult result) {
-        return true;
+        return super.supports(result);
     }
     @SuppressWarnings({"unused"})
     private static Mono<?> methodForParams() {
@@ -77,6 +76,7 @@ public class CommonHandler extends ResponseBodyResultHandler  {
         }else{
             body = new ResponseMessage<>(CommonResponseCode.SUCCESS,body);
         }
+        body = Mono.just(body);
         return writeBody(body, param, exchange);
     }
 

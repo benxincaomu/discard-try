@@ -1,7 +1,6 @@
 package com.github.benxincaomu.trydemo.web;
 
 import com.github.benxincaomu.notry.utils.Asserts;
-import com.github.benxincaomu.notry.utils.Page;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,4 +34,10 @@ public class TryController {
         Asserts.error();
         return null;
     }
+
+    @GetMapping("getInt")
+    public int getInt(){
+        return 1;
+    }
+
 }

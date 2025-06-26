@@ -50,11 +50,11 @@ public class CommonHandler implements ResponseBodyAdvice<Object> {
 			try {
 				return mapper.writeValueAsString(body);
 			} catch (JsonProcessingException e) {
-				// TODO Auto-generated catch block
 				logger.trace("writeValueAsString failed.....", e);
 				return "inner error";
 			}
 		}
+		
 		return new ResponseMessage<>(CommonResponseCode.SUCCESS, body);
 	}
 

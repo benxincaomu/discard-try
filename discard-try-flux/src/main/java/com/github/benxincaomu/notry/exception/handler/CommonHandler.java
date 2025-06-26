@@ -2,6 +2,8 @@ package com.github.benxincaomu.notry.exception.handler;
 
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.benxincaomu.notry.code.CommonResponseCode;
 import com.github.benxincaomu.notry.exception.CommonException;
 
@@ -69,10 +71,18 @@ public class CommonHandler extends ResponseBodyResultHandler  {
 
         }else if(contentType!=null 
         && !MediaType.APPLICATION_JSON.equalsTypeAndSubtype(contentType)  
-        && !MediaType.APPLICATION_JSON.equalsTypeAndSubtype(contentType)
+        && !MediaType.TEXT_PLAIN.equalsTypeAndSubtype(contentType)
         && !MediaType.TEXT_XML.equalsTypeAndSubtype(contentType)){
             // jackson处理的格式之外，无需处理
 
+        }else if(body instanceof String){
+            ObjectMapper mapper = new ObjectMapper();
+            body = new ResponseMessage<>(CommonResponseCode.SUCCESS, body);
+            try {
+                body = mapper.writeValueAsString(body);
+            } catch (JsonProcessingException e) {
+               body = "";
+            }
         }else{
             body = new ResponseMessage<>(CommonResponseCode.SUCCESS,body);
         }

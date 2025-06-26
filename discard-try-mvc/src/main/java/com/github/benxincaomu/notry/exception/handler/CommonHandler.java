@@ -1,5 +1,8 @@
 package com.github.benxincaomu.notry.exception.handler;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.MethodParameter;
@@ -11,6 +14,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.benxincaomu.notry.code.CommonResponseCode;
 import com.github.benxincaomu.notry.exception.CommonException;
 
@@ -22,7 +27,6 @@ import com.github.benxincaomu.notry.exception.CommonException;
 public class CommonHandler implements ResponseBodyAdvice<Object> {
 
 	private final Logger logger = LoggerFactory.getLogger(getClass());
-
 	@Override
 	public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
 		return true;
@@ -35,9 +39,21 @@ public class CommonHandler implements ResponseBodyAdvice<Object> {
 		if (body instanceof ResponseMessage) {
 			return body;
 		}
-		if (!selectedContentType.equalsTypeAndSubtype(MediaType.APPLICATION_JSON)  && !selectedContentType.equalsTypeAndSubtype(MediaType.APPLICATION_JSON)
+		
+		if (!selectedContentType.equalsTypeAndSubtype(MediaType.APPLICATION_JSON)  && !selectedContentType.equalsTypeAndSubtype(MediaType.TEXT_PLAIN)
 				&& !selectedContentType.equalsTypeAndSubtype(MediaType.TEXT_XML)) {
 			return body;
+		}
+		if(body instanceof String){
+			body = new ResponseMessage<>(CommonResponseCode.SUCCESS, body);
+			ObjectMapper mapper = new ObjectMapper();
+			try {
+				return mapper.writeValueAsString(body);
+			} catch (JsonProcessingException e) {
+				// TODO Auto-generated catch block
+				logger.trace("writeValueAsString failed.....", e);
+				return "inner error";
+			}
 		}
 		return new ResponseMessage<>(CommonResponseCode.SUCCESS, body);
 	}
@@ -50,5 +66,4 @@ public class CommonHandler implements ResponseBodyAdvice<Object> {
 		ResponseMessage<?> message = new ResponseMessage<>(e.getCode(), e.getMessage(), null);
 		return message;
 	}
-
 }

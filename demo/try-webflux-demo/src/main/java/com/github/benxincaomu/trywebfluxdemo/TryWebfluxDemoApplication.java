@@ -1,4 +1,4 @@
-package com.github.benxincaomu.trywebfluxdemo;
+package io.github.benxincaomu.trywebfluxdemo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

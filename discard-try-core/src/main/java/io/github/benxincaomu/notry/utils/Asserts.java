@@ -1,10 +1,10 @@
-package com.github.benxincaomu.notry.utils;
+package io.github.benxincaomu.notry.utils;
 
 import java.util.Objects;
 
-import com.github.benxincaomu.notry.code.CommonResponseCode;
-import com.github.benxincaomu.notry.code.ResponseCode;
-import com.github.benxincaomu.notry.exception.CommonException;
+import io.github.benxincaomu.notry.code.CommonResponseCode;
+import io.github.benxincaomu.notry.code.ResponseCode;
+import io.github.benxincaomu.notry.exception.CommonException;
 
 /**
  * 断言工具，条件不成立则抛出异常

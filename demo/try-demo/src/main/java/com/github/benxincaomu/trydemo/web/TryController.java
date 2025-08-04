@@ -1,6 +1,6 @@
-package com.github.benxincaomu.trydemo.web;
+package io.github.benxincaomu.trydemo.web;
 
-import com.github.benxincaomu.notry.utils.Asserts;
+import io.github.benxincaomu.notry.utils.Asserts;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

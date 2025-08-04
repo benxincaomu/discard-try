@@ -1,4 +1,4 @@
-package com.github.benxincaomu.notry.exception.handler;
+package io.github.benxincaomu.notry.exception.handler;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -10,14 +10,17 @@ import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.benxincaomu.notry.code.CommonResponseCode;
-import com.github.benxincaomu.notry.exception.CommonException;
+
+import io.github.benxincaomu.notry.code.CommonResponseCode;
+import io.github.benxincaomu.notry.exception.CommonException;
+import io.github.benxincaomu.notry.exception.handler.ResponseMessage;
 
 /**
  * 请求后置处理，异常处理和响应结构处理
@@ -46,6 +49,7 @@ public class CommonHandler implements ResponseBodyAdvice<Object> {
 		}
 		if(body instanceof String){
 			body = new ResponseMessage<>(CommonResponseCode.SUCCESS, body);
+			response.getHeaders().setContentType(MediaType.APPLICATION_JSON);
 			ObjectMapper mapper = new ObjectMapper();
 			try {
 				return mapper.writeValueAsString(body);
@@ -66,4 +70,13 @@ public class CommonHandler implements ResponseBodyAdvice<Object> {
 		ResponseMessage<?> message = new ResponseMessage<>(e.getCode(), e.getMessage(), null);
 		return message;
 	}
+
+	@ExceptionHandler({ MethodArgumentNotValidException.class })
+	public ResponseMessage<?> resolveMethodArgumentNotValidException(MethodArgumentNotValidException e) { 
+		logger.error("method argument not valid", e);
+
+		return new ResponseMessage<>(CommonResponseCode.PARAM_VALIDATE_FAILED, e.getBindingResult().getFieldError().getDefaultMessage());
+
+	}
+
 }

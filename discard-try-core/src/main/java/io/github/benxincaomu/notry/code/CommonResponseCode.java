@@ -1,4 +1,4 @@
-package com.github.benxincaomu.notry.code;
+package io.github.benxincaomu.notry.code;
 
 /**
  * 自定义响应码
@@ -11,7 +11,11 @@ package com.github.benxincaomu.notry.code;
  *
  */
 public enum CommonResponseCode implements ResponseCode {
-	ERROR(500, "系统异常"), SUCCESS(200, "操作成功"),;
+	ERROR(500, "系统异常"), 
+	SUCCESS(200, "操作成功"),
+	PARAM_VALIDATE_FAILED(6001, "%s字段检验失败"),
+	
+	;
 
 	private int code;
 	private String message;

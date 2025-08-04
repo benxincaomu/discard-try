@@ -8,7 +8,7 @@
 		<version>3.5.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.github.benxincaomu</groupId>
+	<groupId>io.github.benxincaomu</groupId>
 	<artifactId>try-webflux-demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>try-webflux-demo</name>
@@ -22,7 +22,7 @@
 			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.github.benxincaomu</groupId>
+			<groupId>io.github.benxincaomu</groupId>
 			<artifactId>discard-try-flux</artifactId>
 			<version>1.2.0</version>
 		</dependency>

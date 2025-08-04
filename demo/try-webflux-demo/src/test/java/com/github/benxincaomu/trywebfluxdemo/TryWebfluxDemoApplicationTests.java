@@ -1,4 +1,4 @@
-package com.github.benxincaomu.trywebfluxdemo;
+package io.github.benxincaomu.trywebfluxdemo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

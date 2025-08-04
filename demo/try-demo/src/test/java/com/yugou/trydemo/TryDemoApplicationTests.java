@@ -1,4 +1,4 @@
-package com.github.benxincaomu.trydemo;
+package io.github.benxincaomu.trydemo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

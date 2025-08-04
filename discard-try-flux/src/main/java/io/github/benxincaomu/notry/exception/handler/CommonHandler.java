@@ -1,11 +1,12 @@
-package com.github.benxincaomu.notry.exception.handler;
+package io.github.benxincaomu.notry.exception.handler;
 
 
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.benxincaomu.notry.code.CommonResponseCode;
-import com.github.benxincaomu.notry.exception.CommonException;
+
+import io.github.benxincaomu.notry.code.CommonResponseCode;
+import io.github.benxincaomu.notry.exception.CommonException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -76,6 +77,7 @@ public class CommonHandler extends ResponseBodyResultHandler  {
             // jackson处理的格式之外，无需处理
 
         }else if(body instanceof String){
+            exchange.getResponse().getHeaders().setContentType(MediaType.APPLICATION_JSON);
             ObjectMapper mapper = new ObjectMapper();
             body = new ResponseMessage<>(CommonResponseCode.SUCCESS, body);
             try {

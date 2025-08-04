@@ -1,4 +1,4 @@
-package com.github.benxincaomu.trydemo;
+package io.github.benxincaomu.trydemo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.github.benxincaomu.trydemo.web;
+package io.github.benxincaomu.trydemo.web;
 
 import java.util.ArrayList;
 import java.util.Collections;

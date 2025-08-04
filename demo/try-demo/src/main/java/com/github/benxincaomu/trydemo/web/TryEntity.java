@@ -1,4 +1,4 @@
-package com.github.benxincaomu.trydemo.web;
+package io.github.benxincaomu.trydemo.web;
 
 public class TryEntity {
     private String name;

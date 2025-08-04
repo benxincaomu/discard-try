@@ -4,7 +4,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.benxincaomu</groupId>
+    <groupId>io.github.benxincaomu</groupId>
 
     <artifactId>discard-try</artifactId>
     <version>1.2.0</version>

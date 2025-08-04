@@ -1,6 +1,6 @@
-package com.github.benxincaomu.trywebfluxdemo.web;
+package io.github.benxincaomu.trywebfluxdemo.web;
 
-import com.github.benxincaomu.notry.utils.Asserts;
+import io.github.benxincaomu.notry.utils.Asserts;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,4 +1,4 @@
-package com.github.benxincaomu.trywebfluxdemo.web;
+package io.github.benxincaomu.trywebfluxdemo.web;
 
 import java.util.ArrayList;
 import java.util.Collections;

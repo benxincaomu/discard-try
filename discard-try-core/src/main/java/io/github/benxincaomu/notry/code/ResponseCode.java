@@ -1,4 +1,4 @@
-package com.github.benxincaomu.notry.code;
+package io.github.benxincaomu.notry.code;
 
 /**
  * 响应码定义，自定义请实现此接口

@@ -34,7 +34,6 @@
 
 #### depoly
 
-先将相关jar部署到maven本地库中或者先depoly到私有maven库，然后在pom中引入
 
 #### spring mvc引入
 
